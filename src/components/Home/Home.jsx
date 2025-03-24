@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ApiService from "../Api/ApiService";
 
 export const Home = () => {
-  const loadData = async () => {
-    const res = await ApiService.ApiProduct();
-    console.log(res);
+  const loadDataCategory = async () => {
+    const res = await ApiService.ApiCategory();
+    console.log(res.data);
   };
 
-  loadData();
+  useEffect(() => {
+    loadDataCategory();
+  }, []);
 };
